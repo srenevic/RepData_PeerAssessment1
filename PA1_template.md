@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 ## Introduction
 
@@ -44,7 +49,7 @@ step_day <- tapply(activity$steps,activity$date,sum)
 hist(step_day, breaks = 15, col="blue",xlab="Number of Steps", main="Daily Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 Mean and median calculation:
 
@@ -54,9 +59,9 @@ step.mean <- mean(step_day, na.rm=TRUE)
 step.median <- median(step_day, na.rm=TRUE)
 ```
 
-The mean value is 1.0766189\times 10^{4}.
+The mean value is 1.0766189 &times; 10<sup>4</sup>.
 
-The median value is 1.0765\times 10^{4}.
+The median value is 1.0765 &times; 10<sup>4</sup>.
 
 ## What is the average daily activity pattern?
 
@@ -68,7 +73,7 @@ avgStepsInt <- tapply(activity$steps,activity$interval,mean, na.rm=TRUE)
 plot(names(avgStepsInt), avgStepsInt, type="l", main = "Time Series Plot", xlab="5-minute Intervals", ylab="Avg Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 ```r
 max.step <- as.numeric(names(which.max(avgStepsInt)))
@@ -102,7 +107,7 @@ for (i in which(is.na(activityNoNA)))
 hist(tapply(activityNoNA$steps,activityNoNA$date,sum), col="blue",main = "Daily steps", xlab="Number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 
 ```r
@@ -110,9 +115,12 @@ step.mean <- mean(step_day, na.rm=TRUE)
 step.median <- median(step_day, na.rm=TRUE)
 ```
 
-The mean value is 1.0766189\times 10^{4}.
+The mean value is 1.0766189 &times; 10<sup>4</sup>.
 
-The median value is 1.0765\times 10^{4}.
+The median value is 1.0765 &times; 10<sup>4</sup>.
+
+Mean and median values are the same than before.
+
 ## Are there differences in activity patterns between weekdays and weekends?
 
 
